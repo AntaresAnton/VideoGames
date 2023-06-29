@@ -13,7 +13,7 @@ const { TokenTrue } = require('../middlewares/auth');
 const { validadorPlataformas } = require('../validators/plataformas.validators');
 //INSTACIA DE NUESTRA ROUTER DE EXPRESS
 const router = Router();
-//RUTAS DE CATEGORIAS
+//RUTAS DE PLATAFORMA
 router.get('/', obtenerPlataformas);
 router.post('/', [TokenTrue, validadorPlataformas], agregarPlataforma);
 router.get('/nombre/:name', obtenerPlataformaNombre);
