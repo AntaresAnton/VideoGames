@@ -15,7 +15,7 @@ const { validadorPlataformas } = require('../validators/plataformas.validators')
 const router = Router();
 //RUTAS DE CATEGORIAS
 router.get('/', obtenerPlataformas);
-router.post('/', TokenTrue, [validadorPlataformas], agregarPlataforma);
+router.post('/', [TokenTrue, validadorPlataformas], agregarPlataforma);
 router.get('/nombre/:name', obtenerPlataformaNombre);
 router.get('/:id', obtenerPlataforma);
 router.put('/:id',TokenTrue, editarPlataforma);
