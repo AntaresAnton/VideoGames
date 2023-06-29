@@ -3,9 +3,9 @@ const database = require('./../config/basedatos');
 const jwt = require('./../utils/jsonwebtoken');
 const { desencriptar } = require('./../utils/password');
 
-//GENERO FUNCION PARA VALIDAR EL LOGIN, DONDE NECESITO COMO PARAMETROS EL REQ(REQUEST) Y RES(RESPONSE)
+//CREAR FUNCION PARA VALIDAR EL LOGIN, NECESITA PARAMETROS COMO EL REQ(REQUEST) Y RES(RESPONSE)
 //REQ => LO QUE YO RECIBO AL SERVIDOR
-//RES => LO QUE YO ENVIO AL CLIENTE
+//RES => LO QUE YO ENVIO AL USUARIO
 const login = async (req, res) => {
     //AGREGAMOS TRY-CATCH PARA QUE NUESTRA API NO SE CAIGA DE FORMA ABRUPTA
     try {

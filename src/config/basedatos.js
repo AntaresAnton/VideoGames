@@ -1,4 +1,4 @@
-// Importamos dotenv
+// Importamos 
 const mysql = require('mysql2/promise')
 // Configuracion de la base de datos
 const configDatabase = {
