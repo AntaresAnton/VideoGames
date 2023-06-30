@@ -2,8 +2,8 @@
 const httpError = (res, msj, estado = 400) => {
     return res.status(estado).json(
         {
-            "ok": false,
-            "msj": msj
+            "estado": false,
+            "mensaje": msj
         }
     );
 }

@@ -18,7 +18,7 @@ const obtenerPlataformas = async (req, res) => {
         //RETORNAMOS LA RESPUESTA
         res.json(
             {
-                "ok": true,
+                "estado": true,
                 data: rows
             }
         );
@@ -45,14 +45,14 @@ const agregarPlataforma = async (req, res) => {
         if (!resultado.insertId) {
             return res.json(
                 {
-                    "ok": false,
-                    "msj": "no creaste nada de la Plataforma"
+                    "estado": false,
+                    "mensaje": "no creaste nada de la Plataforma"
                 }
             );
         }
         res.json(
             {
-                "ok": true
+                "estado": true
             }
         );
     } catch (error) {
@@ -77,7 +77,7 @@ const obtenerPlataforma = async (req, res) => {
 
         res.json(
             {
-                "ok": true,
+                "estado": true,
                 data: rows
             }
         );
@@ -103,7 +103,7 @@ const obtenerPlataformaNombre = async (req, res) => {
        const [rows] = await db.query(sql);
        res.json(
            {
-               "ok": true,
+               "estado": true,
                data: rows
            }
        );
@@ -130,8 +130,8 @@ const editarPlataforma = async (req, res) => {
         }
         //RETORNAMOS LA RESPUESTA
         return res.json({
-            "ok": true,
-            "msj": "Se edito correctamente  la Plataforma"
+            "estado": true,
+            "mensaje": "Se edito correctamente  la Plataforma"
         });
     } catch (error) {
         return httpError(res, "Ocurrio algo en PUT Plataforma");
@@ -152,8 +152,8 @@ const eliminarPlataforma = async (req, res) => {
 
         return res.json(
             {
-                "ok": true,
-                "msj": "Plataforma fue eliminada correctamente"
+                "estado": true,
+                "mensaje": "Plataforma fue eliminada correctamente"
             }
         )
 

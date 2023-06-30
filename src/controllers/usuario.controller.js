@@ -55,13 +55,13 @@ const agregarUsuario = async (req, res) => {
 
         if (result.insertId) {
             return res.json({
-                "msj": "Usuario Agregado Correctamente",
+                "mensaje": "Usuario Agregado Correctamente",
                 "usuario": result
             });
         }
 
         res.json({
-            "msj": "Usuario No Agregado",
+            "mensaje": "Usuario No Agregado",
             // "usuario": usuario
         });
     } catch (error) {
@@ -81,7 +81,7 @@ const editarUsuario = async (req, res) => {
                 WHERE id_user = ${id}`;
         const [result] = await db.query(sql);
         res.json({
-            "msj": "usuario modificado",
+            "mensaje": "usuario modificado",
         });
     } catch (error) {
         return httpError(res, "Ocurrio algo en PUT Usuario");
@@ -99,12 +99,12 @@ const eliminarUsuario = async (req, res) => {
 
         if (result.affectedRows) {
             return res.json({
-                "msj": "usuario eliminado"
+                "mensaje": "usuario eliminado"
             });
         }
 
         res.json({
-            "msj": "usuario no eliminado"
+            "mensaje": "usuario no eliminado"
         });
     } catch (error) {
         return httpError(res, "Ocurrio algo en DELETE Usuario");

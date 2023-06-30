@@ -1,7 +1,7 @@
 // Objetivo: verificar si el usuario tiene un token valido
 const jwt = require('./../utils/jsonwebtoken')
 // Metodo que verifica si el usuario tiene un token valido
-const TokenTrue = (req, res, next) => {
+const TokenVerdadero = (req, res, next) => {
     try {
         const { authorization } = req.headers;
         const token = authorization.split(" ").pop();
@@ -10,8 +10,8 @@ const TokenTrue = (req, res, next) => {
             //que no puedo seguir trabajando
             return res.status(400).json(
                 {
-                    "ok": false,
-                    "msj": "token no valido"
+                    "estado": false,
+                    "mensaje": "token no valido"
                 }
             );
         }
@@ -20,8 +20,8 @@ const TokenTrue = (req, res, next) => {
     } catch (error) {
         return res.status(400).json(
             {
-                "ok": false,
-                "msj": "token no valido try-catch"
+                "estado": false,
+                "mensaje": "token no valido try-catch"
             }
         );
     }
@@ -41,6 +41,6 @@ const obtenerData = (token) => {
 }
 // Exporto el metodo
 module.exports = {
-    TokenTrue,
+    TokenVerdadero,
     obtenerData
 }

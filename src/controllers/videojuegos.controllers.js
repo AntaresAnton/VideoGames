@@ -22,7 +22,7 @@ const obtenerVideoJuegos = async (req, res) => {
 
         res.json(
             {
-                "ok": true,
+                "estado": true,
                 data: rows
             }
         );
@@ -48,14 +48,14 @@ const agregarVideoJuego = async (req, res) => {
         if (!resultado.insertId) {
             return res.json(
                 {
-                    "ok": false,
-                    "msj": "no creaste nada de la videojuegos"
+                    "estado": false,
+                    "mensaje": "no creaste nada de la videojuegos"
                 }
             );
         }
         res.json(
             {
-                "ok": true
+                "estado": true
             }
         );
     } catch (error) {
@@ -79,7 +79,7 @@ const obtenerVideoJuego = async (req, res) => {
         const [rows] = await db.query(sql);
         res.json(
             {
-                "ok": true,
+                "estado": true,
                 data: rows
             }
         );
@@ -107,7 +107,7 @@ const obtenerVideoJuegoNombre = async (req, res) => {
        const [rows] = await db.query(sql);
        res.json(
            {
-               "ok": true,
+               "estado": true,
                data: rows
            }
        );
@@ -137,8 +137,8 @@ const editarVideoJuego = async (req, res) => {
         }
         //RETORNAMOS LA RESPUESTA
         return res.json({
-            "ok": true,
-            "msj": "Se edito correctamente  la videojuegos"
+            "estado": true,
+            "mensaje": "Se ha editado correctamente los videojuegos"
         });
 
     } catch (error) {
@@ -155,13 +155,13 @@ const eliminarVideoJuego = async (req, res) => {
         const [resultado] = await db.query(sql);
 
         if (!resultado.affectedRows) {
-            return httpError(res, "No se pudo eliminar nada de la videojuegos");
+            return httpError(res, "No se pudo eliminar nada de la tabla de videojuegos");
         }
 
         return res.json(
             {
-                "ok": true,
-                "msj": "videojuegos fue eliminada correctamente"
+                "estado": true,
+                "mensaje": "videojuegos fue eliminada correctamente"
             }
         )
 

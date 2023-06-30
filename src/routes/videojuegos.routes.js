@@ -8,16 +8,16 @@ const { obtenerVideoJuegos,
     editarVideoJuego,
     eliminarVideoJuego } = require('../controllers/videojuegos.controllers');
 //LLAMAMOS NUESTRO METODO DE VERIFICAR TOKEN.
-const { TokenTrue } = require('../middlewares/auth');
+const { TokenValido } = require('../middlewares/auth');
 const { validadorVideoJuegos } = require('../validators/videojuegos.validators');
 //INSTACIA DE NUESTRA ROUTER DE EXPRESS
 const router = Router();
 //RUTAS DE RECETAS
 router.get('/', obtenerVideoJuegos);
-router.post('/', [TokenTrue, validadorVideoJuegos], agregarVideoJuego);
+router.post('/', [TokenValido, validadorVideoJuegos], agregarVideoJuego);
 router.get('/:id', obtenerVideoJuego);
 router.get('/plataforma/:name', obtenerVideoJuegoNombre);
-router.put('/:id',TokenTrue, editarVideoJuego);
-router.delete('/:id',TokenTrue, eliminarVideoJuego);
+router.put('/:id',TokenValido, editarVideoJuego);
+router.delete('/:id',TokenValido, eliminarVideoJuego);
 //EXPORTA NUESTRA RUTA PARA NUESTRO INDEX.JS
 module.exports = router;

@@ -7,7 +7,7 @@ const { validadorLogin } = require('./../validators/login.validators');
 const { TokenTrue } = require('./../middlewares/auth');
 //INSTACIA DE NUESTRA ROUTER DE EXPRESS
 const route = Router();
-//verifica si existe usario y crea token
+//verifica si existe usuario y crea token
 route.post('/login', [validadorLogin], login);
 //verifica si el token es valido
 route.post('/verificar', TokenTrue, verificar);

@@ -21,8 +21,8 @@ app.use('/plataforma', plataformaRoutes);
 app.all('*', (req, res) => {
     res.json(
         {
-            "ok": false,
-            "msj": "URL no encontrada"
+            "estado": false,
+            "mensaje": "URL no encontrada"
         }
     );
 })

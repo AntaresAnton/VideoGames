@@ -9,17 +9,17 @@ const { obtenerPlataformas,
     eliminarPlataforma } = require('../controllers/plataformas.controllers');
 
 //LLAMAMOS NUESTRO METODO DE VERIFICAR TOKEN.
-const { TokenTrue } = require('../middlewares/auth');
+const { TokenVerdadero } = require('../middlewares/auth');
 const { validadorPlataformas } = require('../validators/plataformas.validators');
 //INSTANCIA DEL ROUTER EXPRESS
 const router = Router();
 //RUTAS DE PLATAFORMA
 router.get('/', obtenerPlataformas);
-router.post('/', [TokenTrue, validadorPlataformas], agregarPlataforma);
+router.post('/', [TokenVerdadero, validadorPlataformas], agregarPlataforma);
 router.get('/nombre/:name', obtenerPlataformaNombre);
 router.get('/:id', obtenerPlataforma);
-router.put('/:id',TokenTrue, editarPlataforma);
-router.delete('/:id',TokenTrue, eliminarPlataforma);
+router.put('/:id',TokenVerdadero, editarPlataforma);
+router.delete('/:id',TokenVerdadero, eliminarPlataforma);
 
 //EXPORTAR RUTA PARA EL INDEX.JS
 module.exports = router;
